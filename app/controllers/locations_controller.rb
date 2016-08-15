@@ -74,6 +74,9 @@ class LocationsController < ApplicationController
     end
   end
 
+  def location_params
+    params.require(:location).permit(:address, :city, :latitude, :longitude)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location

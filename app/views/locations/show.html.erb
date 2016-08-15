@@ -7,13 +7,14 @@
 <h2>The closest buses are:</h2>
 
 <% if @bus_count == 0 %>
-  <p>Sorry; there aren't any buses near you.</p>
+  <p>Sorry; there are no buses near you.</p>
 <% end %>
-
 <% @nearby_buses.each do |bus| %>
-  <strong>Route</strong>:<%= bus["ROUTE"] %><br />
-  <strong>Vehicle</strong>:<%= bus["VEHICLE"] %><br />
-  <strong>Next Stop</strong>:<%= bus["TIMEPOINT"] %><br />
+  <p>
+      <strong>Route</strong>:<%= bus["ROUTE"] %><br />
+      <strong>Vehicle</strong>:<%= bus["VEHICLE"] %><br />
+      <strong>Next Stop</strong>:<%= bus["TIMEPOINT"] %><br />
+  </p>
 <% end %>
 <p>
   <strong>Address:</strong>
@@ -24,5 +25,6 @@
   <strong>City:</strong>
   <%= @location.city %>
 </p>
-
+<h1><%= @location.address %></h1>
+<p><%= @location.latitude %>, <%= @location.longitude %></p>
 <%= link_to 'Actually, i\'m at ...', edit_location_path(@location) %>
